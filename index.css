@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+
+  background-color: #fdfdfd;
+  font-family: "Libre Baskerville", serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 5rem;
+
+  color: black;
+
+  margin: 0;
+  padding: 0.25rem;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inputContainer {
+  /* padding: 0.25rem; */
+  background-color: white;
+  border-radius: 1rem;
+  border: 0.25rem solid black;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 0.5rem;
+
+  animation: none;
+}
+
+.inputContainer > input {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  font-size: 2rem;
+}
+
+.inputContainer > input:focus {
+  outline: transparent;
+}
+
+.inputContainer > button {
+  font-size: 2.5rem;
+  height: 5rem;
+  width: 5rem;
+
+  font-weight: 700;
+  padding: 0;
+
+  background-color: transparent;
+  border: 0 solid black;
+  border-left-width: 3px;
+}
+
+.inputContainer > button:hover {
+  cursor: pointer;
+}
+
+.inputContainer[data-error="true"] {
+  animation: shake 1s linear;
+  border: 0.25rem solid red;
+}
+
+.inputContainer[data-error="true"] > button {
+  border: 0 solid red;
+  border-left-width: 3px;
+}
+
+.todos {
+  list-style: none;
+
+  margin: 0;
+  padding: 0 0 2rem 0;
+
+  min-width: 20%;
+  max-width: 50%;
+
+  margin-top: 5rem;
+}
+
+.todo {
+  font-size: large;
+  margin-top: 2rem;
+  border-bottom: 2px dotted black;
+  text-align: justify;
+  padding-bottom: 0.5rem;
+
+  display: grid;
+  grid-template-columns: 90% 10%;
+}
+
+.todo > button {
+  width: 2rem;
+  aspect-ratio: 1 / 1;
+
+  align-self: center;
+  justify-self: center;
+
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+
+  font-family: "Noto Color Emoji", sans-serif;
+  font-size: 2rem;
+  color: red;
+}
+
+.todo > button:hover,
+.todo > span:hover {
+  cursor: pointer;
+}
+
+.todo > span {
+  word-wrap: break-word;
+}
+
+.todo[data-complete="true"] > span {
+  text-decoration: line-through;
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .inputContainer > input {
+    font-size: 1.5rem;
+  }
+
+  .inputContainer > button {
+    font-size: 1rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .todos {
+    max-width: 90%;
+
+    grid-template-columns: 80% 20%;
+  }
+
+  .todo > button {
+    font-size: 1rem;
+  }
+}
+
+@keyframes shake {
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
